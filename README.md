@@ -162,3 +162,16 @@ UI elements are conditionally rendered based on user role.
 ```bash
 git clone https://github.com/Adityaagarwal12345/GIGFLOWW.git
 cd GigFlow
+
+### Backend
+cd server
+npm install
+npm run dev
+
+Frontend
+cd client
+npm install
+npm run dev
+
+Frontend: http://localhost:5173
+Backend: http://localhost:5000
