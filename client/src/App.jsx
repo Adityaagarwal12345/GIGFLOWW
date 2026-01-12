@@ -10,13 +10,8 @@ import Dashboard from './pages/Dashboard';
 import CreateGig from './pages/CreateGig';
 import GigDetails from './pages/GigDetails';
 
-const ENDPOINT = window.location.origin.replace('5173', '5000').replace('http', 'ws'); // Simple hack for dev or just use '/api' proxy logic for socket?
-// Actually socket.io client usually defaults to window.location. But dev server is on 5173, backend on 5000.
-// We set up proxy in vite.config.js for /api, but socket often needs explicit URL if ports differ and proxy isn't ws-configured.
-// Let's hardcode localhost:5000 for local dev if needed, or use relative if proxy handles it.
-// Vite proxy DOES handle ws if configured: { '/socket.io': { target: 'ws://localhost:5000', ws: true } }
-// I didn't add that to vite.config.js. I'll use explicit URL for now to be safe.
-const SOCKET_URL = 'http://localhost:5000';
+// Define Socket URL based on environment
+const SOCKET_URL = import.meta.env.MODE === 'development' ? 'http://localhost:5000' : 'https://gigfloww-10.onrender.com';
 
 function App() {
     const { userInfo } = useSelector((state) => state.auth);
