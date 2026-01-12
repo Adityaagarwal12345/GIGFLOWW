@@ -175,3 +175,6 @@ npm run dev
 
 Frontend: http://localhost:5173
 Backend: http://localhost:5000
+
+<img width="1897" height="910" alt="image" src="https://github.com/user-attachments/assets/008f96de-08f0-471e-b515-b336e7012c7e" />
+
