@@ -161,7 +161,7 @@ UI elements are conditionally rendered based on user role.
 ### Clone Repository
 ```bash
 git clone https://github.com/Adityaagarwal12345/GIGFLOWW.git
-cd GigFlow
+cd GIGFLOWW
 
 ### Backend
 cd server
