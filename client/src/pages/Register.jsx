@@ -26,7 +26,7 @@ const Register = () => {
     };
 
     return (
-        <div className="flex items-center justify-center min-h-screen bg-slate-50 relative overflow-hidden">
+        <div className="flex items-center justify-center min-h-screen bg-black relative overflow-hidden">
             {/* Background Decorations */}
             <div className="absolute top-0 left-0 w-full h-full overflow-hidden pointer-events-none">
                 <div className="absolute bottom-[-10%] right-[-10%] w-96 h-96 bg-indigo-200 rounded-full mix-blend-multiply filter blur-3xl opacity-30 animate-blob"></div>
@@ -34,12 +34,12 @@ const Register = () => {
                 <div className="absolute top-[-10%] right-[20%] w-96 h-96 bg-pink-200 rounded-full mix-blend-multiply filter blur-3xl opacity-30 animate-blob animation-delay-4000"></div>
             </div>
 
-            <div className="bg-white/80 backdrop-blur-lg p-10 rounded-2xl shadow-2xl w-full max-w-md border border-white/50 relative z-10 transition-all duration-300 hover:shadow-indigo-500/10">
+            <div className="bg-gray-900/80 backdrop-blur-lg p-10 rounded-2xl shadow-2xl w-full max-w-md border border-gray-800 relative z-10 transition-all duration-300 hover:shadow-indigo-500/10">
                 <div className="text-center mb-8">
-                    <h2 className="text-3xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-indigo-600 to-purple-600">
+                    <h2 className="text-3xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-indigo-400 to-purple-400">
                         Join GigFlow
                     </h2>
-                    <p className="text-gray-500 mt-2">Start your journey today</p>
+                    <p className="text-gray-400 mt-2">Start your journey today</p>
                 </div>
 
                 {error && (
@@ -51,48 +51,48 @@ const Register = () => {
 
                 <form onSubmit={submitHandler} className="space-y-5">
                     <div>
-                        <label className="block text-gray-700 text-sm font-semibold mb-2 ml-1">Full Name</label>
+                        <label className="block text-gray-300 text-sm font-semibold mb-2 ml-1">Full Name</label>
                         <input
                             type="text"
                             value={name}
                             onChange={(e) => setName(e.target.value)}
-                            className="w-full px-4 py-3 border border-gray-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:border-transparent transition-all duration-200 bg-gray-50 focus:bg-white"
+                            className="w-full px-4 py-3 border border-gray-700 rounded-xl focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:border-transparent transition-all duration-200 bg-gray-800 focus:bg-gray-700 text-white"
                             placeholder="John Doe"
                             required
                         />
                     </div>
                     <div>
-                        <label className="block text-gray-700 text-sm font-semibold mb-2 ml-1">Email Address</label>
+                        <label className="block text-gray-300 text-sm font-semibold mb-2 ml-1">Email Address</label>
                         <input
                             type="email"
                             value={email}
                             onChange={(e) => setEmail(e.target.value)}
-                            className="w-full px-4 py-3 border border-gray-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:border-transparent transition-all duration-200 bg-gray-50 focus:bg-white"
+                            className="w-full px-4 py-3 border border-gray-700 rounded-xl focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:border-transparent transition-all duration-200 bg-gray-800 focus:bg-gray-700 text-white"
                             placeholder="you@example.com"
                             required
                         />
                     </div>
                     <div>
-                        <label className="block text-gray-700 text-sm font-semibold mb-2 ml-1">Password</label>
+                        <label className="block text-gray-300 text-sm font-semibold mb-2 ml-1">Password</label>
                         <input
                             type="password"
                             value={password}
                             onChange={(e) => setPassword(e.target.value)}
-                            className="w-full px-4 py-3 border border-gray-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:border-transparent transition-all duration-200 bg-gray-50 focus:bg-white"
+                            className="w-full px-4 py-3 border border-gray-700 rounded-xl focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:border-transparent transition-all duration-200 bg-gray-800 focus:bg-gray-700 text-white"
                             placeholder="••••••••"
                             required
                         />
                     </div>
 
                     <div>
-                        <label className="block text-gray-700 text-sm font-semibold mb-2 ml-1">I am a...</label>
+                        <label className="block text-gray-300 text-sm font-semibold mb-2 ml-1">I am a...</label>
                         <div className="grid grid-cols-2 gap-4">
                             <button
                                 type="button"
                                 onClick={() => setRole('client')}
                                 className={`py-2 px-4 rounded-xl border border-2 text-sm font-bold transition-all ${role === 'client'
-                                        ? 'border-indigo-600 bg-indigo-50 text-indigo-700'
-                                        : 'border-gray-200 text-gray-500 hover:border-gray-300'
+                                    ? 'border-indigo-500 bg-indigo-900/50 text-indigo-300'
+                                    : 'border-gray-700 text-gray-400 hover:border-gray-600'
                                     }`}
                             >
                                 Client
@@ -101,8 +101,8 @@ const Register = () => {
                                 type="button"
                                 onClick={() => setRole('freelancer')}
                                 className={`py-2 px-4 rounded-xl border border-2 text-sm font-bold transition-all ${role === 'freelancer'
-                                        ? 'border-purple-600 bg-purple-50 text-purple-700'
-                                        : 'border-gray-200 text-gray-500 hover:border-gray-300'
+                                    ? 'border-purple-500 bg-purple-900/50 text-purple-300'
+                                    : 'border-gray-700 text-gray-400 hover:border-gray-600'
                                     }`}
                             >
                                 Freelancer

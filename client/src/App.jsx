@@ -53,7 +53,7 @@ function App() {
     }, [userInfo]);
 
     return (
-        <div className="min-h-screen bg-slate-50 font-sans text-gray-900 selection:bg-indigo-100 selection:text-indigo-700">
+        <div className="min-h-screen bg-black font-sans text-gray-100 selection:bg-indigo-900 selection:text-indigo-200">
             {notification && (
                 <div className="fixed top-24 right-6 bg-gradient-to-r from-green-500 to-emerald-600 text-white px-6 py-4 rounded-xl shadow-2xl z-50 flex items-center animate-slide-in-right">
                     <div className="bg-white/20 p-2 rounded-full mr-3">

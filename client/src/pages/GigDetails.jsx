@@ -72,36 +72,36 @@ const GigDetails = () => {
     return (
         <div className="container mx-auto max-w-5xl px-6 py-10">
             {/* Gig Header Card */}
-            <div className="bg-white shadow-xl rounded-2xl overflow-hidden mb-8 border border-gray-100">
+            <div className="bg-gray-900 shadow-xl rounded-2xl overflow-hidden mb-8 border border-gray-800">
                 <div className="h-2 bg-gradient-to-r from-indigo-500 to-purple-500"></div>
                 <div className="p-8">
                     <div className="flex flex-col md:flex-row justify-between items-start md:items-center mb-6">
                         <div>
-                            <h1 className="text-3xl md:text-4xl font-extrabold text-gray-900 mb-2">{currentGig.title}</h1>
-                            <p className="text-gray-500 flex items-center">
-                                Posted by <span className="font-semibold text-gray-700 ml-1 mr-1">{currentGig.ownerId.name}</span>
+                            <h1 className="text-3xl md:text-4xl font-extrabold text-white mb-2">{currentGig.title}</h1>
+                            <p className="text-gray-400 flex items-center">
+                                Posted by <span className="font-semibold text-gray-300 ml-1 mr-1">{currentGig.ownerId.name}</span>
                                 on {new Date(currentGig.createdAt).toLocaleDateString()}
                             </p>
                         </div>
                         <span className={`mt-4 md:mt-0 px-5 py-2 rounded-full text-sm font-bold uppercase tracking-wide shadow-sm ${currentGig.status === 'open'
-                            ? 'bg-green-100 text-green-700 border border-green-200'
-                            : 'bg-gray-200 text-gray-600 border border-gray-300'
+                            ? 'bg-green-900/30 text-green-400 border border-green-900'
+                            : 'bg-gray-800 text-gray-400 border border-gray-700'
                             }`}>
                             {currentGig.status}
                         </span>
                     </div>
 
-                    <div className="border-t border-b border-gray-100 py-6 mb-6">
-                        <h3 className="text-xs font-bold text-gray-400 uppercase tracking-wider mb-3">Project Description</h3>
-                        <div className="prose max-w-none text-gray-700 leading-relaxed text-lg">
+                    <div className="border-t border-b border-gray-800 py-6 mb-6">
+                        <h3 className="text-xs font-bold text-gray-500 uppercase tracking-wider mb-3">Project Description</h3>
+                        <div className="prose max-w-none text-gray-300 leading-relaxed text-lg">
                             {currentGig.description}
                         </div>
                     </div>
 
                     <div className="flex items-center">
-                        <div className="bg-indigo-50 px-6 py-3 rounded-xl border border-indigo-100">
-                            <span className="text-gray-500 text-sm font-bold uppercase block mb-1">Budget</span>
-                            <span className="text-2xl font-bold text-indigo-700">${currentGig.budget.toLocaleString()}</span>
+                        <div className="bg-indigo-900/30 px-6 py-3 rounded-xl border border-indigo-900/50">
+                            <span className="text-gray-400 text-sm font-bold uppercase block mb-1">Budget</span>
+                            <span className="text-2xl font-bold text-indigo-400">${currentGig.budget.toLocaleString()}</span>
                         </div>
                     </div>
                 </div>
@@ -118,54 +118,54 @@ const GigDetails = () => {
             <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
                 {/* Left Column: Gig Info */}
                 <div className="lg:col-span-2 space-y-8">
-                    <div className="bg-white rounded-2xl shadow-sm border border-gray-200 p-8">
-                        <h1 className="text-3xl md:text-4xl font-extrabold text-gray-900 mb-4">{currentGig.title}</h1>
-                        <p className="text-gray-500 flex items-center mb-6">
-                            Posted by <span className="font-semibold text-gray-700 ml-1 mr-1">{currentGig.ownerId.name}</span>
+                    <div className="bg-gray-900 rounded-2xl shadow-sm border border-gray-800 p-8">
+                        <h1 className="text-3xl md:text-4xl font-extrabold text-white mb-4">{currentGig.title}</h1>
+                        <p className="text-gray-400 flex items-center mb-6">
+                            Posted by <span className="font-semibold text-gray-300 ml-1 mr-1">{currentGig.ownerId.name}</span>
                             on {new Date(currentGig.createdAt).toLocaleDateString()}
                         </p>
-                        <h3 className="text-xl font-bold text-gray-900 mb-4 flex items-center">
-                            <span className="bg-indigo-100 p-2 rounded-lg mr-3">
-                                <svg className="w-6 h-6 text-indigo-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 6h16M4 12h16M4 18h7"></path></svg>
+                        <h3 className="text-xl font-bold text-white mb-4 flex items-center">
+                            <span className="bg-indigo-900/50 p-2 rounded-lg mr-3">
+                                <svg className="w-6 h-6 text-indigo-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 6h16M4 12h16M4 18h7"></path></svg>
                             </span>
                             Project Description
                         </h3>
-                        <p className="text-gray-600 leading-relaxed whitespace-pre-line">{currentGig.description}</p>
+                        <p className="text-gray-400 leading-relaxed whitespace-pre-line">{currentGig.description}</p>
                     </div>
 
                     {/* Bids Section (Visible to Owner, or if user is freelancer we might show something else? Usually only owner sees all bids) */}
                     {/* Requirement says: Clients can view bids on their own gigs. */}
                     {userInfo && userInfo.role === 'client' && userInfo._id === currentGig.ownerId._id && (
                         <div className="mt-8">
-                            <h3 className="text-2xl font-bold text-gray-900 mb-6 flex items-center">
+                            <h3 className="text-2xl font-bold text-white mb-6 flex items-center">
                                 Proposals
-                                <span className="ml-3 bg-gray-100 text-gray-600 text-sm py-1 px-3 rounded-full">{bids.length}</span>
+                                <span className="ml-3 bg-gray-800 text-gray-300 text-sm py-1 px-3 rounded-full">{bids.length}</span>
                             </h3>
                             <div className="space-y-4">
                                 {bids.length === 0 ? (
-                                    <div className="text-center py-12 bg-gray-50 rounded-2xl border border-dashed border-gray-200">
+                                    <div className="text-center py-12 bg-gray-900 rounded-2xl border border-dashed border-gray-800">
                                         <p className="text-gray-500">No proposals yet.</p>
                                     </div>
                                 ) : (
                                     bids.map((bid) => (
-                                        <div key={bid._id} className={`bg-white rounded-xl p-6 shadow-sm border transition-all ${bid.status === 'hired' ? 'border-green-500 ring-2 ring-green-500/20' : 'border-gray-200 hover:border-indigo-300'}`}>
+                                        <div key={bid._id} className={`bg-gray-900 rounded-xl p-6 shadow-sm border transition-all ${bid.status === 'hired' ? 'border-green-600 ring-2 ring-green-500/20' : 'border-gray-800 hover:border-indigo-500/50'}`}>
                                             <div className="flex justify-between items-start mb-4">
                                                 <div>
-                                                    <h4 className="font-bold text-lg text-gray-800">{bid.freelancerId.name}</h4>
-                                                    <p className="text-sm text-gray-500">{bid.freelancerId.email}</p>
+                                                    <h4 className="font-bold text-lg text-white">{bid.freelancerId.name}</h4>
+                                                    <p className="text-sm text-gray-400">{bid.freelancerId.email}</p>
                                                 </div>
                                                 <div className="text-right">
-                                                    <span className="block text-2xl font-bold text-indigo-600">${bid.price}</span>
-                                                    <span className="text-xs text-gray-400">Bid Amount</span>
+                                                    <span className="block text-2xl font-bold text-indigo-400">${bid.price}</span>
+                                                    <span className="text-xs text-gray-500">Bid Amount</span>
                                                 </div>
                                             </div>
-                                            <div className="bg-gray-50 p-4 rounded-lg mb-4">
-                                                <p className="text-gray-700 italic">"{bid.message}"</p>
+                                            <div className="bg-gray-800/50 p-4 rounded-lg mb-4">
+                                                <p className="text-gray-300 italic">"{bid.message}"</p>
                                             </div>
                                             <div className="flex justify-between items-center mt-4">
-                                                <span className={`px-3 py-1 rounded-full text-xs font-bold uppercase tracking-wide ${bid.status === 'hired' ? 'bg-green-100 text-green-700' :
-                                                        bid.status === 'rejected' ? 'bg-red-100 text-red-700' :
-                                                            'bg-yellow-100 text-yellow-700'
+                                                <span className={`px-3 py-1 rounded-full text-xs font-bold uppercase tracking-wide ${bid.status === 'hired' ? 'bg-green-900/30 text-green-400 border border-green-900' :
+                                                    bid.status === 'rejected' ? 'bg-red-900/30 text-red-400 border border-red-900' :
+                                                        'bg-yellow-900/30 text-yellow-400 border border-yellow-900'
                                                     }`}>
                                                     {bid.status}
                                                 </span>
@@ -189,10 +189,10 @@ const GigDetails = () => {
 
                 {/* Right Column: Action / Budget */}
                 <div className="lg:col-span-1">
-                    <div className="bg-white rounded-2xl shadow-lg border border-gray-100 p-6 sticky top-24">
+                    <div className="bg-gray-900 rounded-2xl shadow-lg border border-gray-800 p-6 sticky top-24">
                         <div className="text-center mb-8">
                             <span className="text-gray-500 text-sm uppercase tracking-wider font-semibold">Project Budget</span>
-                            <div className="text-4xl font-extrabold text-gray-900 mt-2">${currentGig.budget}</div>
+                            <div className="text-4xl font-extrabold text-white mt-2">${currentGig.budget}</div>
                         </div>
 
                         {/* Bid Form - Only for Freelancers */}
@@ -207,7 +207,7 @@ const GigDetails = () => {
                                                 type="number"
                                                 value={bidPrice}
                                                 onChange={(e) => setBidPrice(e.target.value)}
-                                                className="w-full pl-8 pr-4 py-3 border border-gray-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-indigo-500 bg-gray-50 focus:bg-white"
+                                                className="w-full pl-8 pr-4 py-3 border border-gray-700 rounded-xl focus:outline-none focus:ring-2 focus:ring-indigo-500 bg-gray-800 focus:bg-gray-700 text-white"
                                                 placeholder="Your Price"
                                                 required
                                             />
@@ -217,7 +217,7 @@ const GigDetails = () => {
                                         <textarea
                                             value={bidMessage}
                                             onChange={(e) => setBidMessage(e.target.value)}
-                                            className="w-full px-4 py-3 border border-gray-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-indigo-500 h-32 bg-gray-50 focus:bg-white"
+                                            className="w-full px-4 py-3 border border-gray-700 rounded-xl focus:outline-none focus:ring-2 focus:ring-indigo-500 h-32 bg-gray-800 focus:bg-gray-700 text-white"
                                             placeholder="Why are you the best fit?"
                                             required
                                         ></textarea>
@@ -234,19 +234,19 @@ const GigDetails = () => {
 
                         {/* Status Info for non-open gigs */}
                         {currentGig.status !== 'open' && (
-                            <div className="bg-gray-100 rounded-xl p-4 text-center">
-                                <p className="text-gray-600 font-medium">This gig is currently {currentGig.status}</p>
+                            <div className="bg-gray-800 rounded-xl p-4 text-center">
+                                <p className="text-gray-400 font-medium">This gig is currently {currentGig.status}</p>
                             </div>
                         )}
 
                         {/* Creator Info */}
-                        <div className="mt-8 pt-6 border-t border-gray-100">
+                        <div className="mt-8 pt-6 border-t border-gray-800">
                             <div className="flex items-center justify-center space-x-3">
-                                <div className="w-10 h-10 rounded-full bg-indigo-100 flex items-center justify-center text-indigo-700 font-bold">
+                                <div className="w-10 h-10 rounded-full bg-indigo-900/50 flex items-center justify-center text-indigo-400 font-bold">
                                     {currentGig.ownerId?.name?.charAt(0).toUpperCase()}
                                 </div>
                                 <div className="text-left">
-                                    <p className="text-sm font-bold text-gray-900">{currentGig.ownerId?.name}</p>
+                                    <p className="text-sm font-bold text-gray-200">{currentGig.ownerId?.name}</p>
                                     <p className="text-xs text-gray-500">Project Owner</p>
                                 </div>
                             </div>

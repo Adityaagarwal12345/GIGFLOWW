@@ -21,7 +21,7 @@ const CreateGig = () => {
 
     return (
         <div className="container mx-auto max-w-2xl py-10 px-4">
-            <div className="bg-white shadow-2xl rounded-2xl overflow-hidden border border-gray-100">
+            <div className="bg-gray-900 shadow-2xl rounded-2xl overflow-hidden border border-gray-800">
                 <div className="bg-gradient-to-r from-indigo-600 to-purple-600 p-8 text-white">
                     <h2 className="text-3xl font-extrabold">Post a New Gig</h2>
                     <p className="opacity-80 mt-2">Connect with top freelance talent</p>
@@ -29,35 +29,35 @@ const CreateGig = () => {
 
                 <form onSubmit={submitHandler} className="p-8 space-y-6">
                     <div>
-                        <label className="block text-gray-700 font-bold mb-2 ml-1 text-sm">Gig Title</label>
+                        <label className="block text-gray-300 font-bold mb-2 ml-1 text-sm">Gig Title</label>
                         <input
                             type="text"
                             value={title}
                             onChange={(e) => setTitle(e.target.value)}
-                            className="w-full px-4 py-3 border border-gray-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:border-transparent transition-all bg-gray-50 focus:bg-white"
+                            className="w-full px-4 py-3 border border-gray-700 rounded-xl focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:border-transparent transition-all bg-gray-800 focus:bg-gray-700 text-white"
                             placeholder="e.g. Build a React Website"
                             required
                         />
                     </div>
                     <div>
-                        <label className="block text-gray-700 font-bold mb-2 ml-1 text-sm">Description</label>
+                        <label className="block text-gray-300 font-bold mb-2 ml-1 text-sm">Description</label>
                         <textarea
                             value={description}
                             onChange={(e) => setDescription(e.target.value)}
-                            className="w-full px-4 py-3 border border-gray-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:border-transparent transition-all h-40 bg-gray-50 focus:bg-white"
+                            className="w-full px-4 py-3 border border-gray-700 rounded-xl focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:border-transparent transition-all h-40 bg-gray-800 focus:bg-gray-700 text-white"
                             placeholder="Describe the project details, requirements, and timeline..."
                             required
                         ></textarea>
                     </div>
                     <div>
-                        <label className="block text-gray-700 font-bold mb-2 ml-1 text-sm">Budget ($)</label>
+                        <label className="block text-gray-300 font-bold mb-2 ml-1 text-sm">Budget ($)</label>
                         <div className="relative">
                             <span className="absolute left-4 top-1/2 transform -translate-y-1/2 text-gray-400 font-bold">$</span>
                             <input
                                 type="number"
                                 value={budget}
                                 onChange={(e) => setBudget(e.target.value)}
-                                className="w-full pl-8 pr-4 py-3 border border-gray-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:border-transparent transition-all bg-gray-50 focus:bg-white"
+                                className="w-full pl-8 pr-4 py-3 border border-gray-700 rounded-xl focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:border-transparent transition-all bg-gray-800 focus:bg-gray-700 text-white"
                                 placeholder="e.g. 500"
                                 required
                             />

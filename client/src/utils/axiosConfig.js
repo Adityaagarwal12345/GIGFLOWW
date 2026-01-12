@@ -1,7 +1,10 @@
 import axios from 'axios';
 
 const api = axios.create({
-    baseURL: '/api', // Proxy in vite config handles localhost:5000
+    baseURL:
+        import.meta.env.MODE === 'development'
+            ? '/api'
+            : 'https://gigfloww-10.onrender.com/api',
     withCredentials: true,
 });
 

@@ -24,7 +24,7 @@ const Login = () => {
     };
 
     return (
-        <div className="flex items-center justify-center min-h-screen bg-slate-50 relative overflow-hidden">
+        <div className="flex items-center justify-center min-h-screen bg-black relative overflow-hidden">
             {/* Background Decorations */}
             <div className="absolute top-0 left-0 w-full h-full overflow-hidden pointer-events-none">
                 <div className="absolute top-[-10%] left-[-10%] w-96 h-96 bg-indigo-200 rounded-full mix-blend-multiply filter blur-3xl opacity-30 animate-blob"></div>
@@ -32,12 +32,12 @@ const Login = () => {
                 <div className="absolute bottom-[-10%] left-[20%] w-96 h-96 bg-pink-200 rounded-full mix-blend-multiply filter blur-3xl opacity-30 animate-blob animation-delay-4000"></div>
             </div>
 
-            <div className="bg-white/80 backdrop-blur-lg p-10 rounded-2xl shadow-2xl w-full max-w-md border border-white/50 relative z-10 transition-all duration-300 hover:shadow-indigo-500/10">
+            <div className="bg-gray-900/80 backdrop-blur-lg p-10 rounded-2xl shadow-2xl w-full max-w-md border border-gray-800 relative z-10 transition-all duration-300 hover:shadow-indigo-500/10">
                 <div className="text-center mb-8">
-                    <h2 className="text-3xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-indigo-600 to-purple-600">
+                    <h2 className="text-3xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-indigo-400 to-purple-400">
                         Welcome Back
                     </h2>
-                    <p className="text-gray-500 mt-2">Sign in to find your flow</p>
+                    <p className="text-gray-400 mt-2">Sign in to find your flow</p>
                 </div>
 
                 {error && (
@@ -49,23 +49,23 @@ const Login = () => {
 
                 <form onSubmit={submitHandler} className="space-y-6">
                     <div>
-                        <label className="block text-gray-700 text-sm font-semibold mb-2 ml-1">Email Address</label>
+                        <label className="block text-gray-300 text-sm font-semibold mb-2 ml-1">Email Address</label>
                         <input
                             type="email"
                             value={email}
                             onChange={(e) => setEmail(e.target.value)}
-                            className="w-full px-4 py-3 border border-gray-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:border-transparent transition-all duration-200 bg-gray-50 focus:bg-white"
+                            className="w-full px-4 py-3 border border-gray-700 rounded-xl focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:border-transparent transition-all duration-200 bg-gray-800 focus:bg-gray-700 text-white"
                             placeholder="you@example.com"
                             required
                         />
                     </div>
                     <div>
-                        <label className="block text-gray-700 text-sm font-semibold mb-2 ml-1">Password</label>
+                        <label className="block text-gray-300 text-sm font-semibold mb-2 ml-1">Password</label>
                         <input
                             type="password"
                             value={password}
                             onChange={(e) => setPassword(e.target.value)}
-                            className="w-full px-4 py-3 border border-gray-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:border-transparent transition-all duration-200 bg-gray-50 focus:bg-white"
+                            className="w-full px-4 py-3 border border-gray-700 rounded-xl focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:border-transparent transition-all duration-200 bg-gray-800 focus:bg-gray-700 text-white"
                             placeholder="••••••••"
                             required
                         />
@@ -86,8 +86,8 @@ const Login = () => {
                         ) : 'Sign In'}
                     </button>
                 </form>
-                <div className="mt-8 text-center border-t border-gray-200 pt-6">
-                    <p className="text-gray-600">
+                <div className="mt-8 text-center border-t border-gray-800 pt-6">
+                    <p className="text-gray-400">
                         New to GigFlow?{' '}
                         <Link to="/register" className="text-indigo-600 hover:text-purple-600 font-bold hover:underline transition-colors">
                             Create an account

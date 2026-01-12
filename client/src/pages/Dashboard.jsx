@@ -56,7 +56,7 @@ const Dashboard = () => {
                         <div className="relative">
                             <input
                                 type="text"
-                                className="w-full py-4 pl-12 pr-4 text-gray-800 rounded-xl focus:outline-none focus:ring-4 focus:ring-indigo-300 shadow-lg text-lg"
+                                className="w-full py-4 pl-12 pr-4 text-white bg-gray-800 rounded-xl focus:outline-none focus:ring-4 focus:ring-indigo-500/50 shadow-lg text-lg border border-gray-700"
                                 placeholder="Search for services (e.g., 'Web Development')..."
                                 value={keyword}
                                 onChange={(e) => setKeyword(e.target.value)}
@@ -74,14 +74,14 @@ const Dashboard = () => {
             <div className="flex space-x-4 mb-8 border-b border-gray-200 pb-2">
                 <button
                     onClick={() => setView('browse')}
-                    className={`pb-2 px-4 font-bold text-lg transition-colors ${view === 'browse' ? 'text-indigo-600 border-b-2 border-indigo-600' : 'text-gray-500 hover:text-gray-700'}`}
+                    className={`pb-2 px-4 font-bold text-lg transition-colors ${view === 'browse' ? 'text-indigo-400 border-b-2 border-indigo-400' : 'text-gray-400 hover:text-gray-200'}`}
                 >
                     Browse Gigs
                 </button>
                 {userInfo?.role === 'client' && (
                     <button
                         onClick={() => setView('my-gigs')}
-                        className={`pb-2 px-4 font-bold text-lg transition-colors ${view === 'my-gigs' ? 'text-indigo-600 border-b-2 border-indigo-600' : 'text-gray-500 hover:text-gray-700'}`}
+                        className={`pb-2 px-4 font-bold text-lg transition-colors ${view === 'my-gigs' ? 'text-indigo-400 border-b-2 border-indigo-400' : 'text-gray-400 hover:text-gray-200'}`}
                     >
                         My Posted Gigs
                     </button>
@@ -89,7 +89,7 @@ const Dashboard = () => {
                 {userInfo?.role === 'freelancer' && (
                     <button
                         onClick={() => setView('my-bids')}
-                        className={`pb-2 px-4 font-bold text-lg transition-colors ${view === 'my-bids' ? 'text-indigo-600 border-b-2 border-indigo-600' : 'text-gray-500 hover:text-gray-700'}`}
+                        className={`pb-2 px-4 font-bold text-lg transition-colors ${view === 'my-bids' ? 'text-indigo-400 border-b-2 border-indigo-400' : 'text-gray-400 hover:text-gray-200'}`}
                     >
                         My Bids
                     </button>
@@ -112,18 +112,18 @@ const Dashboard = () => {
                     {view === 'my-bids' ? (
                         // Bids View
                         displayData.map((bid) => (
-                            <div key={bid._id} className="bg-white rounded-xl shadow-md hover:shadow-xl transition-shadow duration-300 overflow-hidden border border-gray-100 flex flex-col group relative">
+                            <div key={bid._id} className="bg-gray-900 rounded-xl shadow-md hover:shadow-xl transition-shadow duration-300 overflow-hidden border border-gray-800 flex flex-col group relative">
                                 <div className="p-6 flex-grow">
                                     <div className="flex justify-between items-start mb-4">
-                                        <span className={`px-3 py-1 rounded-full text-xs font-bold uppercase tracking-wide ${bid.status === 'hired' ? 'bg-green-100 text-green-700' :
-                                                bid.status === 'rejected' ? 'bg-red-100 text-red-700' :
-                                                    'bg-yellow-100 text-yellow-700'
+                                        <span className={`px-3 py-1 rounded-full text-xs font-bold uppercase tracking-wide ${bid.status === 'hired' ? 'bg-green-900/30 text-green-400 border border-green-900' :
+                                            bid.status === 'rejected' ? 'bg-red-900/30 text-red-400 border border-red-900' :
+                                                'bg-yellow-900/30 text-yellow-400 border border-yellow-900'
                                             }`}>
                                             {bid.status}
                                         </span>
-                                        <span className="text-sm text-gray-400">{new Date(bid.createdAt).toLocaleDateString()}</span>
+                                        <span className="text-sm text-gray-500">{new Date(bid.createdAt).toLocaleDateString()}</span>
                                     </div>
-                                    <h3 className="text-xl font-bold text-gray-800 mb-2 group-hover:text-indigo-600 transition-colors">
+                                    <h3 className="text-xl font-bold text-white mb-2 group-hover:text-indigo-400 transition-colors">
                                         <Link to={`/gigs/${bid.gigId?._id}`}>{bid.gigId?.title || 'Unknown Gig'}</Link>
                                     </h3>
                                     <p className="text-gray-600 mb-4 line-clamp-2 italic">"{bid.message}"</p>
@@ -134,25 +134,25 @@ const Dashboard = () => {
                     ) : (
                         // Open Gigs or My Gigs View
                         displayData.map((gig) => (
-                            <Link to={`/gigs/${gig._id}`} key={gig._id} className="bg-white rounded-xl shadow-md hover:shadow-xl transition-all duration-300 overflow-hidden border border-gray-100 flex flex-col group transform hover:-translate-y-1">
-                                <div className={`h-2 w-full ${view === 'my-gigs' && gig.status !== 'open' ? 'bg-gray-400' : 'bg-gradient-to-r from-indigo-500 to-purple-500'}`}></div>
+                            <Link to={`/gigs/${gig._id}`} key={gig._id} className="bg-gray-900 rounded-xl shadow-md hover:shadow-xl transition-all duration-300 overflow-hidden border border-gray-800 flex flex-col group transform hover:-translate-y-1">
+                                <div className={`h-2 w-full ${view === 'my-gigs' && gig.status !== 'open' ? 'bg-gray-700' : 'bg-gradient-to-r from-indigo-500 to-purple-500'}`}></div>
                                 <div className="p-6 flex-grow">
                                     <div className="flex justify-between items-start mb-4">
-                                        <span className={`text-xs font-bold px-3 py-1 rounded-full uppercase tracking-wider ${gig.status === 'open' ? 'bg-indigo-50 text-indigo-600' : 'bg-gray-200 text-gray-600'
+                                        <span className={`text-xs font-bold px-3 py-1 rounded-full uppercase tracking-wider ${gig.status === 'open' ? 'bg-indigo-900/30 text-indigo-400 border border-indigo-900' : 'bg-gray-800 text-gray-400 border border-gray-700'
                                             }`}>
                                             {gig.status}
                                         </span>
-                                        <span className="text-gray-400 text-sm font-medium">{new Date(gig.createdAt).toLocaleDateString()}</span>
+                                        <span className="text-gray-500 text-sm font-medium">{new Date(gig.createdAt).toLocaleDateString()}</span>
                                     </div>
-                                    <h3 className="text-xl font-bold text-gray-900 mb-3 group-hover:text-indigo-600 transition-colors line-clamp-1">{gig.title}</h3>
-                                    <p className="text-gray-600 text-sm line-clamp-3 mb-6 relative z-10">{gig.description}</p>
+                                    <h3 className="text-xl font-bold text-white mb-3 group-hover:text-indigo-400 transition-colors line-clamp-1">{gig.title}</h3>
+                                    <p className="text-gray-400 text-sm line-clamp-3 mb-6 relative z-10">{gig.description}</p>
 
-                                    <div className="mt-auto border-t border-gray-100 pt-4 flex justify-between items-center">
-                                        <div className="flex items-center text-gray-700 font-bold">
+                                    <div className="mt-auto border-t border-gray-800 pt-4 flex justify-between items-center">
+                                        <div className="flex items-center text-gray-300 font-bold">
                                             <span className="text-lg mr-1">$</span>
                                             <span className="text-xl">{gig.budget}</span>
                                         </div>
-                                        <div className="flex items-center text-indigo-600 text-sm font-semibold group-hover:translate-x-1 transition-transform">
+                                        <div className="flex items-center text-indigo-400 text-sm font-semibold group-hover:translate-x-1 transition-transform">
                                             View Details
                                             <svg className="w-4 h-4 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M9 5l7 7-7 7"></path></svg>
                                         </div>
@@ -162,7 +162,7 @@ const Dashboard = () => {
                         ))
                     )}
                     {displayData.length === 0 && (
-                        <div className="col-span-full text-center py-20 text-gray-500 bg-gray-50 rounded-2xl border border-dashed border-gray-200">
+                        <div className="col-span-full text-center py-20 text-gray-500 bg-gray-900 rounded-2xl border border-dashed border-gray-800">
                             <p className="text-xl font-medium">No {view === 'my-bids' ? 'bids' : 'gigs'} found.</p>
                             <p className="mt-2 text-sm opacity-70">
                                 {view === 'browse' ? 'Try adjusting your search.' : view === 'my-gigs' ? 'You haven\'t posted any gigs yet.' : 'You haven\'t applied to any gigs yet.'}
