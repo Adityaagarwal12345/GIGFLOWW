@@ -6,7 +6,7 @@ const connectDB = require('./config/db');
 
 dotenv.config();
 
-connectDB();
+
 
 const http = require('http');
 const { Server } = require('socket.io');
@@ -14,13 +14,17 @@ const { Server } = require('socket.io');
 const app = express();
 const server = http.createServer(app);
 
+const clientUrl = process.env.CLIENT_URL ? process.env.CLIENT_URL.replace(/\/$/, '') : '';
+
 const io = new Server(server, {
     cors: {
-        origin: process.env.CLIENT_URL,
+        origin: clientUrl,
         methods: ['GET', 'POST'],
         credentials: true
     }
 });
+
+
 
 io.on('connection', (socket) => {
     socket.on('setup', (userData) => {
@@ -29,7 +33,7 @@ io.on('connection', (socket) => {
     });
 });
 
-app.use(cors({ origin: process.env.CLIENT_URL, credentials: true }));
+app.use(cors({ origin: clientUrl, credentials: true }));
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use(cookieParser());
@@ -55,4 +59,10 @@ app.get('/', (req, res) => {
 
 const PORT = process.env.PORT || 5000;
 
-server.listen(PORT, () => console.log(`Server running on port ${PORT}`));
+// Connect to DB then start server
+connectDB().then(() => {
+    server.listen(PORT, () => console.log(`Server running on port ${PORT}`));
+}).catch(err => {
+    console.error('Database connection failed', err);
+    process.exit(1);
+});
