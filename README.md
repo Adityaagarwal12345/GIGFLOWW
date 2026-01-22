@@ -178,3 +178,9 @@ Backend: http://localhost:5000
 live web link- https://gigfloww-wedj.vercel.app/
 
 
+## Frontend Developer Intern Assignment – PrimeTrade
+
+This project was built as part of the Frontend Developer Intern assignment.
+It demonstrates authentication, protected routes, dashboard CRUD operations,
+and scalable frontend-backend integration.
+
